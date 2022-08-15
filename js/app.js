@@ -16,9 +16,11 @@ function initSlider() {
   renderSliders();
   startAutoSliding();
 }
+
 function startAutoSliding() {
   myInterval = setInterval(showNextSlide, 5000);
 }
+
 function renderSliders() {
   slideItems.forEach((item, i) => {
     if (activeIndex === i) {
@@ -26,5 +28,32 @@ function renderSliders() {
     } else {
       item.classList.remove("active");
     }
+  });
+}
+
+function showNextSlide() {
+  activeIndex = activeIndex + 1;
+  if (activeIndex > slideItems.length - 1) {
+    activeIndex = 0;
+  }
+  renderSliders();
+}
+
+// skills section
+const skillsSection = document.getElementById("skills-section");
+const progressBars = document.querySelectorAll(".progress-bar");
+
+function showProgress() {
+  progressBars.forEach((progressBar) => {
+    const value = progressBar.dataset.progress;
+    progressBar.style.opacity = 1;
+    progressBar.style.width = `${value}%`;
+  });
+}
+
+function hideProgress() {
+  progressBars.forEach((p) => {
+    p.style.opacity = 0;
+    p.style.width = 0;
   });
 }
