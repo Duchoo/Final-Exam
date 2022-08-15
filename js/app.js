@@ -171,15 +171,17 @@ signupForm.addEventListener("submit", (e) => {
 
 async function createUser(userData) {
   try {
-    const response = await fetch(
-      "http://borjomi.loremipsum.ge/api/send-message",
-      {
-        method: "POST",
-        body: JSON.stringify(userData),
-        headers: { "Content-Type": "application/json" },
-      }
-    );
-    await response.json();
+    const res = await fetch("http://borjomi.loremipsum.ge/api/send-message", {
+      method: "post",
+      body: JSON.stringify(userData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const dataFrom = await res.json();
+    console.log(dataFrom);
+    // await response.json();
   } catch (e) {
     console.log("Error - ", e);
   }
