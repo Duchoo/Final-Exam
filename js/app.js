@@ -19,3 +19,12 @@ function initSlider() {
 function startAutoSliding() {
   myInterval = setInterval(showNextSlide, 5000);
 }
+function renderSliders() {
+  slideItems.forEach((item, i) => {
+    if (activeIndex === i) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  });
+}
