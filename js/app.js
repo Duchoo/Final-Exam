@@ -160,7 +160,7 @@ const message = document.querySelector("#message");
 signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const userData = {
-    first_name: first_name.value,
+    name: first_name.value,
     email: email.value,
     website: website.value,
     message: message.value,
