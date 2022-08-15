@@ -16,3 +16,6 @@ function initSlider() {
   renderSliders();
   startAutoSliding();
 }
+function startAutoSliding() {
+  myInterval = setInterval(showNextSlide, 5000);
+}
